@@ -110,9 +110,9 @@ Notation: reg = Register (`rax`, ...), imm = Immediate (idR. eine Zahl)
 | [not](#not-reg1)                              | reg1  |          | reg1 = ~reg1 |
 | [shl](#shl-reg1-value--shl-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 << `cl`/imm |
 | [shr](#shr-reg1-value--shr-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 >> `cl`/imm |
-| [neg](#neg-reg1)                              | reg1  |          | reg1 = -reg1 (2er Komplement) |
 | [add](#add-reg1-value--add-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 + reg2/imm |
 | [sub](#sub-reg1-value--sub-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 - reg2/imm |
+| [neg](#neg-reg1)                              | reg1  |          | reg1 = -reg1 (2er Komplement) |
 | [mul](#mul-reg1)                              | reg1  |          | `rdx:rax` = `rax` * reg1 (unsigned) |
 | [div](#div-reg1)                              | reg1  |          | `rax` = `rdx:rax` / reg1 (Rest in `rdx`) |
 | [imul](#imul-reg1-und-idiv-reg1)              | reg1  |          | `rdx:rax` = `rax` * reg1 (signed) |
@@ -279,14 +279,6 @@ Beispiel:
 
 ## Arithmetische-Operationen:
 
-### neg reg1:
-Definition:
-Negiere den Wert aus dem gegebenen Register (in 2er Komplement).
-
-Beispiel:
-
-	neg rsi ; Negiere den Wert in rsi
-
 ### add reg1, value / add reg1, reg2:
 Definition:
 Addiere einen Wert bzw. den Wert eines Registers auf den Wert eines anderen
@@ -305,6 +297,14 @@ Beispiele:
 
 	sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
 	sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)
+
+### neg reg1:
+Definition:
+Negiere den Wert aus dem gegebenen Register (in 2er Komplement).
+
+Beispiel:
+
+	neg rsi ; Negiere den Wert in rsi
 
 ### mul reg1:
 Definition:

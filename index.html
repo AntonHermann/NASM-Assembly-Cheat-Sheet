@@ -225,22 +225,22 @@ manuell vor dem Aufruf sichern.</p>
 <td>reg1 = reg1 &gt;&gt; <code>cl</code>/imm</td>
 </tr>
 <tr class="even">
-<td><a href="#neg-reg1">neg</a></td>
-<td>reg1</td>
-<td></td>
-<td>reg1 = -reg1 (2er Komplement)</td>
-</tr>
-<tr class="odd">
 <td><a href="#add-reg1-value--add-reg1-reg2">add</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 = reg1 + reg2/imm</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#sub-reg1-value--sub-reg1-reg2">sub</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 = reg1 - reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#neg-reg1">neg</a></td>
+<td>reg1</td>
+<td></td>
+<td>reg1 = -reg1 (2er Komplement)</td>
 </tr>
 <tr class="odd">
 <td><a href="#mul-reg1">mul</a></td>
@@ -417,11 +417,6 @@ class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
 <pre><code>ror rax, rdx
 ror rax, 1</code></pre>
 <h2 id="arithmetische-operationen">Arithmetische-Operationen:</h2>
-<h3 id="neg-reg1">neg reg1:</h3>
-<p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er
-Komplement).</p>
-<p>Beispiel:</p>
-<pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
 <h3 id="add-reg1-value--add-reg1-reg2">add reg1, value / add reg1,
 reg2:</h3>
 <p>Definition: Addiere einen Wert bzw. den Wert eines Registers auf den
@@ -435,6 +430,11 @@ reg2:</h3>
 <p>Beispiele:</p>
 <pre><code>sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
 sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)</code></pre>
+<h3 id="neg-reg1">neg reg1:</h3>
+<p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er
+Komplement).</p>
+<p>Beispiel:</p>
+<pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
 <h3 id="mul-reg1">mul reg1:</h3>
 <p>Definition: Multipliziere den Wert in Register rax mit dem Wert des
 angegebenen Registers. Das Ergebnis wird in die <em>beiden (!!!)</em>
