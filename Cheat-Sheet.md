@@ -179,6 +179,16 @@ Beispiel under the hood:
 	---------
 	0000 1011 = rdx
 
+### not reg (value 1):
+Definition:
+Invertiert den Wert im ersten Register (alle 0en werden zu 1en und umgekehrt).
+
+Beispiel:
+
+	; rdx = 0011 1011
+	neg rdx
+	; rdx = 1100 0100
+
 ### shl reg (value 1), value / shl reg (value 1), cl
 Definition:
 Shifte den Wert des Registers um $n$ Stellen nach Links.

@@ -569,6 +569,13 @@ xor rdx, 0x8f
 1000 1111
 ---------
 0000 1011 = rdx</code></pre>
+<h3 id="not-reg-value-1">not reg (value 1):</h3>
+<p>Definition: Invertiert den Wert im ersten Register (alle 0en werden
+zu 1en und umgekehrt).</p>
+<p>Beispiel:</p>
+<pre><code>; rdx = 0011 1011
+neg rdx
+; rdx = 1100 0100</code></pre>
 <h3 id="shl-reg-value-1-value-shl-reg-value-1-cl">shl reg (value 1),
 value / shl reg (value 1), cl</h3>
 <p>Definition: Shifte den Wert des Registers um <span
