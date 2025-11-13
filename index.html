@@ -34,401 +34,67 @@
 <h1 id="register">Register</h1>
 <table style="background-color: #f8f9fa;color: #202122;margin: 1em 0;border: 1px solid #a2a9b1;border-collapse: collapse;">
 <tbody>
-<tr>
-<th>
-Register
-</th>
-<th style="width: 12%;" colspan="8">
-Accumulator
-</th>
-<th style="width: 12%;" colspan="8">
-Counter
-</th>
-<th style="width: 12%;" colspan="8">
-Data
-</th>
-<th style="width: 12%;" colspan="8">
-Base
-</th>
-<th style="width: 12%;" colspan="8">
-Stack Pointer
-</th>
-<th style="width: 12%;" colspan="8">
-Stack Base Pointer
-</th>
-<th style="width: 12%;" colspan="8">
-Source
-</th>
-<th style="width: 12%;" colspan="8">
-Destination
-</th>
-</tr>
-<tr style="text-align: center;">
-<th scope="row">
-64-bit
-</th>
-<td colspan="8">
-rax
-</td>
-<td colspan="8">
-rcx
-</td>
-<td colspan="8">
-rdx
-</td>
-<td colspan="8">
-rbx
-</td>
-<td colspan="8">
-rsp
-</td>
-<td colspan="8">
-rbp
-</td>
-<td colspan="8">
-rsi
-</td>
-<td colspan="8">
-rdi
-</td>
-</tr>
-<tr style="text-align: center;">
-<th scope="row">
-32-bit
-</th>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-eax
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-ecx
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-edx
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-ebx
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-esp
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-ebp
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-esi
-</td>
-<td style="width: 6%;" colspan="4">
-</td>
-<td style="width: 6%;" colspan="4">
-edi
-</td>
-</tr>
-<tr style="text-align: center;">
-<th scope="row">
-16-bit
-</th>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-ax
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-cx
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-dx
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-bx
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-sp
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-bp
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-si
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 3%;" colspan="2">
-di
-</td>
-</tr>
-<tr style="text-align: center;">
-<th scope="row">
-8-bit
-</th>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 1.5%;" colspan="1">
-ah
-</td>
-<td style="width: 1.5%;" colspan="1">
-al
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 1.5%;" colspan="1">
-ch
-</td>
-<td style="width: 1.5%;" colspan="1">
-cl
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 1.5%;" colspan="1">
-dh
-</td>
-<td style="width: 1.5%;" colspan="1">
-dl
-</td>
-<td style="width: 9%;" colspan="6">
-</td>
-<td style="width: 1.5%;" colspan="1">
-bh
-</td>
-<td style="width: 1.5%;" colspan="1">
-bl
-</td>
-<td style="width: 9%;" colspan="7">
-</td>
-<td style="width: 1.5%;" colspan="1">
-spl
-</td>
-<td style="width: 9%;" colspan="7">
-</td>
-<td style="width: 1.5%;" colspan="1">
-bpl
-</td>
-<td style="width: 9%;" colspan="7">
-</td>
-<td style="width: 1.5%;" colspan="1">
-sil
-</td>
-<td style="width: 9%;" colspan="7">
-</td>
-<td style="width: 1.5%;" colspan="1">
-dil
-</td>
-</tr>
+  <tr><th>Register</th><th style="width: 12%;" colspan="8">Accumulator</th><th style="width: 12%;" colspan="8">Counter</th><th style="width: 12%;" colspan="8">Data</th><th style="width: 12%;" colspan="8">Base</th><th style="width: 12%;" colspan="8">Stack Pointer</th><th style="width: 12%;" colspan="8">Stack Base Pointer</th><th style="width: 12%;" colspan="8">Source</th><th style="width: 12%;" colspan="8">Destination</th></tr>
+  <tr style="text-align: center;"><th scope="row">64-bit</th><td colspan="8">rax</td><td colspan="8">rcx</td><td colspan="8">rdx</td><td colspan="8">rbx</td><td colspan="8">rsp</td><td colspan="8">rbp</td><td colspan="8">rsi</td><td colspan="8">rdi</td></tr>
+  <tr style="text-align: center;"><th scope="row">32-bit</th><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">eax</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">ecx</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">edx</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">ebx</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">esp</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">ebp</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">esi</td><td style="width: 6%;" colspan="4"></td><td style="width: 6%;" colspan="4">edi</td></tr>
+  <tr style="text-align: center;"><th scope="row">16-bit</th><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">ax</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">cx</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">dx</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">bx</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">sp</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">bp</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">si</td><td style="width: 9%;" colspan="6"></td><td style="width: 3%;" colspan="2">di</td></tr>
+  <tr style="text-align: center;"><th scope="row">8-bit</th><td style="width: 9%;" colspan="6"></td><td style="width: 1.5%;" colspan="1">ah</td><td style="width: 1.5%;" colspan="1">al</td><td style="width: 9%;" colspan="6"></td><td style="width: 1.5%;" colspan="1">ch</td><td style="width: 1.5%;" colspan="1">cl</td><td style="width: 9%;" colspan="6"></td><td style="width: 1.5%;" colspan="1">dh</td><td style="width: 1.5%;" colspan="1">dl</td><td style="width: 9%;" colspan="6"></td><td style="width: 1.5%;" colspan="1">bh</td><td style="width: 1.5%;" colspan="1">bl</td><td style="width: 9%;" colspan="7"></td><td style="width: 1.5%;" colspan="1">spl</td><td style="width: 9%;" colspan="7"></td><td style="width: 1.5%;" colspan="1">bpl</td><td style="width: 9%;" colspan="7"></td><td style="width: 1.5%;" colspan="1">sil</td><td style="width: 9%;" colspan="7"></td><td style="width: 1.5%;" colspan="1">dil</td></tr>
 </tbody>
-<caption>
-</caption>
+<caption></caption>
 </table>
+
 <h2 id="verbotene-register">Verbotene Register</h2>
 <p>Folgende Register sollten nicht benutzt werden. Das schließt die
 kleineren Register mit ein.</p>
 <table style="background-color: #f8f9fa;color: #202122;margin: 1em 0;border: 1px solid #a2a9b1;border-collapse: collapse;">
 <tbody>
-<tr>
-<th>
-Register
-</th>
-<th>
-Zugehörig
-</th>
-<th>
-Grund
-</th>
-</tr>
-<tr>
-<td>
-rbp
-</td>
-<td>
-ebp, bp, bpl
-</td>
-<td>
-Pointer zur vorherigen Stackframe.
-</td>
-</tr>
-<tr>
-<td>
-rsp
-</td>
-<td>
-esp, sp, sple
-</td>
-<td>
-Markiert die Position des obersten Eintrags im Stack.
-</td>
-</tr>
-<tr>
-<td>
-rbx
-</td>
-<td>
-ebx, bx, bh, bl
-</td>
-<td>
-Vorgabe, wird direkt für die Steuerung des Programmablaufs genutzt.
-</td>
-</tr>
-<tr>
-<td>
-r12
-</td>
-<td>
-r12d, r12w, r12b
-</td>
-<td>
-Reserviert für interne Abläufe. Kann genutzt werden, falls der Wert
-manuell gespeichert wurde.
-</td>
-</tr>
-<tr>
-<td>
-r13
-</td>
-<td>
-r13d, r13w, r13b
-</td>
-<td>
-Reserviert laut Standard.
-</td>
-</tr>
-<tr>
-<td>
-r14
-</td>
-<td>
-r14d, r14w, r14b
-</td>
-<td>
-Reserviert laut Standard.
-</td>
-</tr>
-<tr>
-<td>
-r15
-</td>
-<td>
-r15d, r15w, r15b
-</td>
-<td>
-Reserviert laut Standard.
-</td>
-</tr>
-<tr>
-<td>
-rip
-</td>
-<td>
-ip
-</td>
-<td>
-Program counter.
-</td>
-</tr>
-<tr>
-<td>
-rflags
-</td>
-<td>
-eflags, flags
-</td>
-<td>
-Regelt zero flag, carry flag, etc.
-</td>
-</tr>
+<tr><th>Register</th><th>Zugehörig</th><th>Grund</th></tr>
+<tr><td>rbp</td><td>ebp, bp, bpl</td><td>Pointer zur vorherigen Stackframe.</td></tr>
+<tr><td>rsp</td><td>esp, sp, sple</td><td>Markiert die Position des obersten Eintrags im Stack.</td></tr>
+<tr><td>rbx</td><td>ebx, bx, bh, bl</td><td>Vorgabe, wird direkt für die Steuerung des Programmablaufs genutzt.</td></tr>
+<tr><td>r12</td><td>r12d, r12w, r12b</td><td>Reserviert für interne Abläufe. Kann genutzt werden, falls der Wert manuell gespeichert wurde.</td></tr>
+<tr><td>r13</td><td>r13d, r13w, r13b</td><td>Reserviert laut Standard.</td></tr>
+<tr><td>r14</td><td>r14d, r14w, r14b</td><td>Reserviert laut Standard.</td></tr>
+<tr><td>r15</td><td>r15d, r15w, r15b</td><td>Reserviert laut Standard.</td></tr>
+<tr><td>rip</td><td>ip</td><td>Program counter.</td></tr>
+<tr><td>rflags</td><td>eflags, flags</td><td>Regelt zero flag, carry flag, etc.</td></tr>
 </tbody>
-<caption>
-</caption>
+<caption></caption>
 </table>
+
 <h2 id="eingabe-register">Eingabe-Register</h2>
 <p>Funktionsparameter werden in folgenden Registern übermittelt:</p>
 <table>
 <tbody>
-<tr style="text-align: center;">
-<th scope="row">
-Parameter Nummer
-</th>
-<td colspan="8">
-1
-</td>
-<td colspan="8">
-2
-</td>
-<td colspan="8">
-3
-</td>
-<td colspan="8">
-4
-</td>
-<td colspan="8">
-5
-</td>
-<td colspan="8">
-6
-</td>
-<td colspan="8">
-7+
-</td>
-</tr>
-<tr style="text-align: center;">
-<th scope="row">
-Register
-</th>
-<td colspan="8">
-rdi
-</td>
-<td colspan="8">
-rsi
-</td>
-<td colspan="8">
-rdx
-</td>
-<td colspan="8">
-rcx
-</td>
-<td colspan="8">
-r8
-</td>
-<td colspan="8">
-r9
-</td>
-<td colspan="8">
-Stack
-</td>
-</tr>
+  <tr style="text-align: center;"><th scope="row">Parameter Nummer</th>
+  <td colspan="8">1</td>
+  <td colspan="8">2</td>
+  <td colspan="8">3</td>
+  <td colspan="8">4</td>
+  <td colspan="8">5</td>
+  <td colspan="8">6</td>
+  <td colspan="8">7+</td>
+  </tr>
+  <tr style="text-align: center;"><th scope="row">Register</th>
+  <td colspan="8">rdi</td>
+  <td colspan="8">rsi</td>
+  <td colspan="8">rdx</td>
+  <td colspan="8">rcx</td>
+  <td colspan="8">r8</td>
+  <td colspan="8">r9</td>
+  <td colspan="8">Stack</td>
+  </tr>
 </tbody>
 </table>
+
 <h2 id="rückgabe-register">Rückgabe-Register</h2>
 <p>Der Rückgabewert einer Funktion steht im <code>rax</code> Register.
 Achtet dabei darauf, dass ihr euer Ergebnis immer ins rax Register
 schreibt.</p>
 <p>Für Floating-Point-Zahlen steht das Ergebnis einer Funktion im
 <code>xmm0</code> Register.</p>
-<h2 id="volatile--vs.-non-volatile-register">Volatile-
-vs. Non-Volatile-Register</h2>
+<h2 id="volatile--vs-non-volatile-register">Volatile- vs.
+Non-Volatile-Register</h2>
 <p>Nach Calling-Convention werden die Register in 2 Kategorien
 eingeteilt: Volatile und Non-Volatile. Non-Volatile-Register behalten,
 nach Calling-Convention, nach einem Funktionsaufruf ihren Wert. D.h. wir
@@ -505,7 +171,7 @@ manuell vor dem Aufruf sichern.</p>
 </table>
 <h1 id="befehle">Befehle</h1>
 <h2 id="bewegen-von-daten">Bewegen von Daten:</h2>
-<h3 id="mov-reg-to-value-mov-reg-to-reg-from">mov reg (to), value / mov
+<h3 id="mov-reg-to-value--mov-reg-to-reg-from">mov reg (to), value / mov
 reg (to), reg (from):</h3>
 <p>Definition: Verschiebe ein Wert bzw. den Wert eines Registers in ein
 weiteres Register.</p>
@@ -513,7 +179,7 @@ weiteres Register.</p>
 <pre><code>mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)</code></pre>
 <h2 id="bit-operationen">Bit-Operationen:</h2>
-<h3 id="and-reg-value-1-value-and-reg-value-1-reg-value-2">and reg
+<h3 id="and-reg-value-1-value--and-reg-value-1-reg-value-2">and reg
 (value 1), value / and reg (value 1), reg (value 2)</h3>
 <p>Definition: Wendet das logische UND (<span
 class="math inline">\(\land\)</span>) mit dem Wert des zweiten
@@ -532,7 +198,7 @@ and rax, rsi = 0101 1101 and 1101 1011
 1001 1011
 ---------
 0001 1001 = rax</code></pre>
-<h3 id="or-reg-value-1-value-or-reg-value-1-reg-value-2">or reg (value
+<h3 id="or-reg-value-1-value--or-reg-value-1-reg-value-2">or reg (value
 1), value / or reg (value 1), reg (value 2)</h3>
 <p>Definition: Wende das logische ODER (<span
 class="math inline">\(\lor\)</span>) mit dem Wert des zweiten Parameters
@@ -551,7 +217,7 @@ or rdx, 0xf = 0011 1101 or 0000 1101
 0000 1101
 ---------
 0011 1101 = rdx</code></pre>
-<h3 id="xor-reg-value-1-value-xor-reg-value-1-reg-value-2">xor reg
+<h3 id="xor-reg-value-1-value--xor-reg-value-1-reg-value-2">xor reg
 (value 1), value / xor reg (value 1), reg (value 2):</h3>
 <p>Definition: Wendet das logische XOR (<span
 class="math inline">\(\oplus\)</span>) mit dem Wert des zweiten
@@ -576,11 +242,11 @@ zu 1en und umgekehrt).</p>
 <pre><code>; rdx = 0011 1011
 neg rdx
 ; rdx = 1100 0100</code></pre>
-<h3 id="shl-reg-value-1-value-shl-reg-value-1-cl">shl reg (value 1),
+<h3 id="shl-reg-value-1-value--shl-reg-value-1-cl">shl reg (value 1),
 value / shl reg (value 1), cl</h3>
 <p>Definition: Shifte den Wert des Registers um <span
 class="math inline">\(n\)</span> Stellen nach Links. Bits die nach Links
-“rausgeschoben” werden gehen verloren</p>
+"rausgeschoben" werden gehen verloren</p>
 <p>Beispiel:</p>
 <pre><code>shl rax, cl ; Verschiebe alle Bits von rax um n-Stellen (Entsprechend des Wertes aus cl)
 shl rax, 1   ; Verschiebe alle Bits</code></pre>
@@ -595,7 +261,7 @@ shl rax, 1
 begründet, dass bei der Entwicklung eines x86-Chips nur eine Verbindung
 des Count-Registers (<code>cl</code>) angelegt wurde für
 Verschiebungen.</p>
-<h3 id="shr-reg-value-1-value-shr-reg-value-1-cl">shr reg (value 1),
+<h3 id="shr-reg-value-1-value--shr-reg-value-1-cl">shr reg (value 1),
 value / shr reg (value 1), cl</h3>
 <p>Definition: Shifte den Wert des Registers um n Stellen nach Rechts.
 Also analog zu <code>shl</code>.</p>
@@ -606,7 +272,7 @@ shr rax, 1</code></pre>
 nur das Register <code>cl</code> als Registerverschiebungswert nutzen!
 Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des
 Count-Registers (<code>cl</code>) für Verschiebungen angelegt.</p>
-<h3 id="rol-reg-value-1-value-rol-reg-value-1-reg-value-2">rol reg
+<h3 id="rol-reg-value-1-value--rol-reg-value-1-reg-value-2">rol reg
 (value 1), value / rol reg (value 1), reg (value 2)</h3>
 <p>Definition: Rotiere die Werte um <span
 class="math inline">\(n\)</span> Stellen. Dies ist Analog zu shl jedoch
@@ -620,7 +286,7 @@ rol rax, 1</code></pre>
 
 rol rax, 1
 =&gt; rax = 1000 1001</code></pre>
-<h3 id="ror-reg-value-1-value-ror-reg-value-1-reg-value-2">ror reg
+<h3 id="ror-reg-value-1-value--ror-reg-value-1-reg-value-2">ror reg
 (value 1), value / ror reg (value 1), reg (value 2)</h3>
 <p>Definition: Rotiere die Werte um <span
 class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
@@ -634,14 +300,14 @@ ror rax, 1</code></pre>
 Komplement).</p>
 <p>Beispiel:</p>
 <pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
-<h3 id="add-reg-value-1-value-add-reg-value-1-reg-value-2">add reg
+<h3 id="add-reg-value-1-value--add-reg-value-1-reg-value-2">add reg
 (value 1), value / add reg (value 1), reg (value 2):</h3>
 <p>Definition: Addiere einen Wert bzw. den Wert eines Registers auf den
 Wert eines anderen Registers.</p>
 <p>Beispiel:</p>
 <pre><code>add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
 add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)</code></pre>
-<h3 id="sub-reg-value-1-value-sub-reg-value-1-reg-value-2">sub reg
+<h3 id="sub-reg-value-1-value--sub-reg-value-1-reg-value-2">sub reg
 (value 1), value / sub reg (value 1), reg (value 2):</h3>
 <p>Definition: Analog zu <code>add</code> jedoch als Subtraktion</p>
 <p>Beispiele:</p>
@@ -677,7 +343,7 @@ idiv reg (value 1):</h3>
 mit Vorzeichen)</p>
 <h2 id="vergleichesprünge-und-bedinge-sprünge">Vergleiche/Sprünge und
 Bedinge Sprünge:</h2>
-<h3 id="cmp-reg-value-1-value-cmp-reg-value-1-reg-value-2">cmp reg
+<h3 id="cmp-reg-value-1-value--cmp-reg-value-1-reg-value-2">cmp reg
 (value 1), value / cmp reg (value 1), reg (value 2):</h3>
 <p>Definition: Vergleiche ein Register mit einem Wert bzw. mit dem Wert
 eines weiteren Registers. Diese Operation setzt Bits im Flag-Register
@@ -699,15 +365,11 @@ jmp .some_label
 ; [Do something]</code></pre>
 <h3 id="jx-some_label">j<em>X</em> some_label:</h3>
 <p>(<em>X</em> wird durch eine von vielen Bezeichnungen ersetzt:
-<code>je</code>, <code>jne</code>, …)</p>
+<code>je</code>, <code>jne</code>, ...)</p>
 <p>Definition: Springe, wenn bestimmte Bits im Flag-Register gesetzt
 sind. Dies wird in der Regel in Kombination mit einer
 Vergleich-Operation genutzt, um diese Bits zu setzen.</p>
 <table>
-<colgroup>
-<col style="width: 67%" />
-<col style="width: 32%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Sprung Bezeichnung</th>
@@ -717,52 +379,52 @@ Vergleich-Operation genutzt, um diese Bits zu setzen.</p>
 <tbody>
 <tr class="odd">
 <td><code>je</code></td>
-<td>“Jump equal” – Springe, wenn der Vergleich ergeben hat, dass die
+<td>"Jump equal" -- Springe, wenn der Vergleich ergeben hat, dass die
 Werte die selben sind</td>
 </tr>
 <tr class="even">
 <td><code>jne</code></td>
-<td>“Jump not equal” – Springe, wenn der Vergleich ergeben hat, dass die
-Werte ungleich sind</td>
+<td>"Jump not equal" -- Springe, wenn der Vergleich ergeben hat, dass
+die Werte ungleich sind</td>
 </tr>
 <tr class="odd">
 <td><code>jb</code></td>
-<td>“Jump below” – Springe wenn <span class="math inline">\(\text{reg1}
+<td>"Jump below" -- Springe wenn <span class="math inline">\(\text{reg1}
 &lt; \text{reg2}\)</span> oder <span class="math inline">\(\text{reg1}
 &lt; \text{value}\)</span> (unsigned number)</td>
 </tr>
 <tr class="even">
 <td><code>ja</code></td>
-<td>“Jump above” – Springe wenn <span class="math inline">\(\text{reg1}
+<td>"Jump above" -- Springe wenn <span class="math inline">\(\text{reg1}
 &gt; \text{reg2}\)</span> oder <span class="math inline">\(\text{reg1}
 &gt; \text{value}\)</span> (unsigned number)</td>
 </tr>
 <tr class="odd">
 <td><code>jl</code></td>
-<td>“Jump less” – Springe wenn <span class="math inline">\(\text{reg1}
+<td>"Jump less" -- Springe wenn <span class="math inline">\(\text{reg1}
 &lt; \text{reg2}\)</span> oder <span class="math inline">\(\text{reg1}
 &lt; \text{value}\)</span> (signed number)</td>
 </tr>
 <tr class="even">
 <td><code>jg</code></td>
-<td>“Jump greater” – Springe wenn <span
+<td>"Jump greater" -- Springe wenn <span
 class="math inline">\(\text{reg1} &gt; \text{reg2}\)</span> oder <span
 class="math inline">\(\text{reg1} &gt; \text{value}\)</span> (signed
 number)</td>
 </tr>
 <tr class="odd">
 <td><code>jz</code></td>
-<td>“Jump zero” – Äquivalent zu <code>je</code>. Springe wenn das
+<td>"Jump zero" -- Äquivalent zu <code>je</code>. Springe wenn das
 Ergebnis 0 ist.</td>
 </tr>
 <tr class="even">
 <td><code>jnz</code></td>
-<td>“Jump not zero” – Äquivalent zu <code>jne</code>. Springe wenn das
+<td>"Jump not zero" -- Äquivalent zu <code>jne</code>. Springe wenn das
 Ergebnis nicht 0 ist.</td>
 </tr>
 <tr class="odd">
-<td><code>jle</code> / <code>jge</code> / …</td>
-<td>“Jump less equal” / “Jump greater equal” – Analog zu den Sprüngen
+<td><code>jle</code> / <code>jge</code> / ...</td>
+<td>"Jump less equal" / "Jump greater equal" -- Analog zu den Sprüngen
 oben nur mit equal</td>
 </tr>
 </tbody>
@@ -776,7 +438,7 @@ jl .some_label
 
 .some_label:
 ; execute here if rax &lt; 2</code></pre>
-<h3 id="test-reg-value-1-value-test-reg-value-1-reg-value-2">test reg
+<h3 id="test-reg-value-1-value--test-reg-value-1-reg-value-2">test reg
 (value 1), value / test reg (value 1), reg (value 2):</h3>
 <p>Definition: Führt ein logisches UND (<span
 class="math inline">\(\land\)</span>) auf das erste Register mit dem
@@ -806,8 +468,8 @@ werden zwei Werte vorgehalten: der (Stack-)Base-Pointer (oder
 Frame-Pointer) und der Stack-Pointer. Der Base-Pointer zeigt immer auf
 den Beginn des Stacks währenddessen der Stack-Pointer auf die nächste
 belegte Adresse zeigt. Der Stack wächst, wenn <code>rsp</code> kleiner
-wird. Daher “wächst” der Stack nach unten. (Der Stack ist “full
-descending”.)</p>
+wird. Daher "wächst" der Stack nach unten. (Der Stack ist "full
+descending".)</p>
 <p>WICHTIG: nach dem Funktionsaufruf (also vor dem ret Befehl) muss der
 Stack-Pointer wieder auf der selben Stelle sein wie zu Beginn des
 Funktionsaufrufs!</p>
@@ -854,7 +516,7 @@ some_other_function:
     ret</code></pre>
 <h1 id="assembly-tricks">Assembly-Tricks:</h1>
 <h3 id="ein-register-auf-0-setzen-clean-oder-bereinigen">Ein Register
-auf 0 setzen (“clean” oder “bereinigen”)</h3>
+auf 0 setzen ("clean" oder "bereinigen")</h3>
 <p>Um den Wert eines Registers auf 0 zu setzen könnt ihr einfach die
 Zahl 0 in das jeweilige Register setzen:</p>
 <pre><code>mov rax, 0 ; Setze rax = 0</code></pre>
@@ -879,31 +541,22 @@ id="ganzzahlige-multiplikationdivision-um-eine-zweier-potenz">Ganzzahlige
 Multiplikation/Division um eine zweier Potenz</h3>
 <p>Die Multiplikation bzw. die Division einer Zahl der Basis <span
 class="math inline">\(b\)</span> mit einer Zahl der Form <span
-class="math inline">\(b^n\)</span> kann als einfache “Verschiebung” um
+class="math inline">\(b^n\)</span> kann als einfache "Verschiebung" um
 <span class="math inline">\(n\)</span> Stellen betrachtet werden. Gucken
 wir uns dies zuerst im Dezimalsystem mit 10-er Potenzen an:</p>
-<p><span class="math display">\[\begin{align*}
-    12 \cdot 10^1 &amp;= 12 \cdot 10   &amp;&amp;= 120 \\
-    12 \cdot 10^2 &amp;= 12 \cdot 100  &amp;&amp;= 1200 \\
-    12 \cdot 10^3 &amp;= 12 \cdot 1000 &amp;&amp;= 12000
-\end{align*}\]</span></p>
-<p><span class="math display">\[\begin{align*}
-    12 \div 10^1 &amp;= 12 \div 10   &amp;&amp;= 1.2 \\
-    12 \div 10^2 &amp;= 12 \div 100  &amp;&amp;= 0.12 \\
-    12 \div 10^3 &amp;= 12 \div 1000 &amp;&amp;= 0.012
-\end{align*}\]</span></p>
+<p>\begin{align*} 12 \cdot 10^1 &amp;= 12 \cdot 10 &amp;&amp;= 120 \ 12
+\cdot 10^2 &amp;= 12 \cdot 100 &amp;&amp;= 1200 \ 12 \cdot 10^3 &amp;=
+12 \cdot 1000 &amp;&amp;= 12000 \end{align*}</p>
+<p>\begin{align*} 12 \div 10^1 &amp;= 12 \div 10 &amp;&amp;= 1.2 \ 12
+\div 10^2 &amp;= 12 \div 100 &amp;&amp;= 0.12 \ 12 \div 10^3 &amp;= 12
+\div 1000 &amp;&amp;= 0.012 \end{align*}</p>
 <p>Im Binärsystem gilt dieses Prinzip natürlich auch:</p>
-<p><span class="math display">\[\begin{align*}
-    0011_2 \cdot 2_{10}^1 &amp;= 0011_2 \cdot 2_{10} &amp;&amp;= 0110_2
-\\
-    0011_2 \cdot 2_{10}^2 &amp;= 0011_2 \cdot 4_{10} &amp;&amp;= 1100_2
-\end{align*}\]</span></p>
-<p><span class="math display">\[\begin{align*}
-    0011_2 \div 2_{10}^1 &amp;= 0011_2 \div 2_{10} &amp;&amp;=
-0001(.1000)_2 \\
-    0011_2 \div 2_{10}^2 &amp;= 0011_2 \div 4_{10} &amp;&amp;=
-0000(.1100)_2
-\end{align*}\]</span></p>
+<p>\begin{align*} 0011_2 \cdot 2_{10}^1 &amp;= 0011_2 \cdot 2_{10}
+&amp;&amp;= 0110_2 \ 0011_2 \cdot 2_{10}^2 &amp;= 0011_2 \cdot 4_{10}
+&amp;&amp;= 1100_2 \end{align*}</p>
+<p>\begin{align*} 0011_2 \div 2_{10}^1 &amp;= 0011_2 \div 2_{10}
+&amp;&amp;= 0001(.1000)<em>2 \ 0011_2 \div 2</em>{10}^2 &amp;= 0011_2
+\div 4_{10} &amp;&amp;= 0000(.1100)_2 \end{align*}</p>
 <p>Hinweise:</p>
 <ol type="1">
 <li>Wir geben mit den Subscripts die Basis der Zahlendarstellung
@@ -930,7 +583,8 @@ Verbindung zugreifen.</p>
 Command-Line und initiiert die Verbindung über SSH:</p>
 <pre><code>$ ssh ZEDAT_USER_NAME@andorra.imp.fu-berlin.de</code></pre>
 <p>Ähnlich funktioniert dies auch für die anderen Remote-Systeme der
-Uni: http://www.mi.fu-berlin.de/w/IT/ItServicesTerminalserver</p>
+Uni: <a
+href="http://www.mi.fu-berlin.de/w/IT/ItServicesTerminalserver">http://www.mi.fu-berlin.de/w/IT/ItServicesTerminalserver</a></p>
 <h2 id="copying-files-sshscp">Copying files (SSH/SCP)</h2>
 <p>Um Dateien von eurem System auf die Remotesysteme der Universität zu
 bekommen kann man das auf SSH basierende SCP (Secure-Copy-Protocol)
@@ -944,7 +598,7 @@ diese zunächst Compiled/Übersetzt werden. Dazu erstellt ihr zunächst mit
 Hilfe von NASM eine Objekt-Datei (<code>.o</code>) aus eurem
 Assembly-Code:</p>
 <pre><code>$ nasm -f elf64 -o PROGRAMM_NAME.o PROGRAMM_NAME.asm</code></pre>
-<p>Die Flag “-f elf64” teilt NASM mit, dass die Ausgabe für x64 Linux
+<p>Die Flag "-f elf64" teilt NASM mit, dass die Ausgabe für x64 Linux
 Übersetzt werden soll.</p>
 <p>Nun müsst ihr auch den C-Wrapper compilieren und eine weitere
 Objektdatei erzeugen:</p>
@@ -956,7 +610,7 @@ euren Code hat.</p>
 <p>Anschließend müssen wir noch beide Objektdateien zu einer
 <strong>ausführbaren Datei</strong> verlinken:</p>
 <pre><code>$ c99 -o PROGRAMM_NAME PROGRAMM_NAME_wrapper.o PROGRAMM_NAME.o</code></pre>
-<p>Abschließend solltet ihr eine Datei mit dem Namen “PROGRAMM_NAME”
+<p>Abschließend solltet ihr eine Datei mit dem Namen "PROGRAMM_NAME"
 besitzen. Diese könnt ihr wie folgt ausführen:</p>
 <pre><code>$ ./PROGRAMM_NAMME [parameter 1] [parameter 2] [parameter 3] ...</code></pre>
 <p>Alternativ könnt ihr auch einfach die gegebene MAKEFILE nutzen</p>
@@ -965,7 +619,7 @@ besitzen. Diese könnt ihr wie folgt ausführen:</p>
 <p>Um Einblick in die Ausführung des ASM-Codes zu bekommen kann man
 <code>gdb</code> verwenden. Hierzu findet ihr eine kleine
 Zusammenfassung von Befehlen zur Ausführung des <code>gdb</code> mit
-einer Terminal “UI”:</p>
+einer Terminal "UI":</p>
 <pre><code>$ gdb PROGRAMM_NAME                 Lade deinen code in gdb
 gdb&gt; break SOME_LABEL_IN_YOUR_CODE  Setze einen &quot;Breakpoint&quot; bei dem dein Programm hält
 gdb&gt; tui enable                     Aktiviere die UI
@@ -978,11 +632,16 @@ gdb&gt; quit                           Beende gdb
 $</code></pre>
 <h1 id="quellen">Quellen:</h1>
 <ul>
-<li>https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture</li>
-<li>https://en.wikipedia.org/wiki/X86_calling_conventions</li>
-<li>https://stackoverflow.com/questions/18024672/what-registers-are-preserved-through-a-linux-x86-64-function-call</li>
-<li>https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html</li>
-<li>https://cs61.seas.harvard.edu/site/2018/Asm1/</li>
+<li><a
+href="https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture">https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture</a></li>
+<li><a
+href="https://en.wikipedia.org/wiki/X86_calling_conventions">https://en.wikipedia.org/wiki/X86_calling_conventions</a></li>
+<li><a
+href="https://stackoverflow.com/questions/18024672/what-registers-are-preserved-through-a-linux-x86-64-function-call">https://stackoverflow.com/questions/18024672/what-registers-are-preserved-through-a-linux-x86-64-function-call</a></li>
+<li><a
+href="https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html">https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html</a></li>
+<li><a
+href="https://cs61.seas.harvard.edu/site/2018/Asm1/">https://cs61.seas.harvard.edu/site/2018/Asm1/</a></li>
 </ul>
 </body>
 </html>
