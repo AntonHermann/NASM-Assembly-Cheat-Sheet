@@ -512,58 +512,6 @@ weiteres Register.</p>
 <p>Beispiel:</p>
 <pre><code>mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)</code></pre>
-<h3 id="shl-reg-value-1-value-shl-reg-value-1-cl">shl reg (value 1),
-value / shl reg (value 1), cl</h3>
-<p>Definition: Shifte den Wert des Registers um <span
-class="math inline">\(n\)</span> Stellen nach Links. Bits die nach Links
-“rausgeschoben” werden gehen verloren</p>
-<p>Beispiel:</p>
-<pre><code>shl rax, cl ; Verschiebe alle Bits von rax um n-Stellen (Entsprechend des Wertes aus cl)
-shl rax, 1   ; Verschiebe alle Bits</code></pre>
-<p>Beispiel under the hood:</p>
-<pre><code>rax = 1100 0011
-
-shl rax, 1
-
-=&gt; rax = 1000 0110</code></pre>
-<p>ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register
-<code>cl</code> als Registerverschiebungswert nehmen! Dies ist dadurch
-begründet, dass bei der Entwicklung eines x86-Chips nur eine Verbindung
-des Count-Registers (<code>cl</code>) angelegt wurde für
-Verschiebungen.</p>
-<h3 id="shr-reg-value-1-value-shr-reg-value-1-cl">shr reg (value 1),
-value / shr reg (value 1), cl</h3>
-<p>Definition: Shifte den Wert des Registers um n Stellen nach Rechts.
-Also analog zu <code>shl</code>.</p>
-<p>Beispiel:</p>
-<pre><code>shr rax, cl
-shr rax, 1</code></pre>
-<p>ACHTUNG: Sowohl <code>shr</code>, als auch <code>shl</code> können
-nur das Register <code>cl</code> als Registerverschiebungswert nutzen!
-Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des
-Count-Registers (<code>cl</code>) für Verschiebungen angelegt.</p>
-<h3 id="rol-reg-value-1-value-rol-reg-value-1-reg-value-2">rol reg
-(value 1), value / rol reg (value 1), reg (value 2)</h3>
-<p>Definition: Rotiere die Werte um <span
-class="math inline">\(n\)</span> Stellen. Dies ist Analog zu shl jedoch
-gehen hier die Bits die nach links raus geschoben werden nicht verloren,
-sondern werden rechts hinzugefügt.</p>
-<p>Beispiel:</p>
-<pre><code>rol rax, rdx
-rol rax, 1</code></pre>
-<p>Beispiel under the hood:</p>
-<pre><code>rax = 1100 0100
-
-rol rax, 1
-=&gt; rax = 1000 1001</code></pre>
-<h3 id="ror-reg-value-1-value-ror-reg-value-1-reg-value-2">ror reg
-(value 1), value / ror reg (value 1), reg (value 2)</h3>
-<p>Definition: Rotiere die Werte um <span
-class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
-<code>rol</code></p>
-<p>Beispiel:</p>
-<pre><code>ror rax, rdx
-ror rax, 1</code></pre>
 <h2 id="bit-operationen">Bit-Operationen:</h2>
 <h3 id="and-reg-value-1-value-and-reg-value-1-reg-value-2">and reg
 (value 1), value / and reg (value 1), reg (value 2)</h3>
@@ -621,6 +569,58 @@ xor rdx, 0x8f
 1000 1111
 ---------
 0000 1011 = rdx</code></pre>
+<h3 id="shl-reg-value-1-value-shl-reg-value-1-cl">shl reg (value 1),
+value / shl reg (value 1), cl</h3>
+<p>Definition: Shifte den Wert des Registers um <span
+class="math inline">\(n\)</span> Stellen nach Links. Bits die nach Links
+“rausgeschoben” werden gehen verloren</p>
+<p>Beispiel:</p>
+<pre><code>shl rax, cl ; Verschiebe alle Bits von rax um n-Stellen (Entsprechend des Wertes aus cl)
+shl rax, 1   ; Verschiebe alle Bits</code></pre>
+<p>Beispiel under the hood:</p>
+<pre><code>rax = 1100 0011
+
+shl rax, 1
+
+=&gt; rax = 1000 0110</code></pre>
+<p>ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register
+<code>cl</code> als Registerverschiebungswert nehmen! Dies ist dadurch
+begründet, dass bei der Entwicklung eines x86-Chips nur eine Verbindung
+des Count-Registers (<code>cl</code>) angelegt wurde für
+Verschiebungen.</p>
+<h3 id="shr-reg-value-1-value-shr-reg-value-1-cl">shr reg (value 1),
+value / shr reg (value 1), cl</h3>
+<p>Definition: Shifte den Wert des Registers um n Stellen nach Rechts.
+Also analog zu <code>shl</code>.</p>
+<p>Beispiel:</p>
+<pre><code>shr rax, cl
+shr rax, 1</code></pre>
+<p>ACHTUNG: Sowohl <code>shr</code>, als auch <code>shl</code> können
+nur das Register <code>cl</code> als Registerverschiebungswert nutzen!
+Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des
+Count-Registers (<code>cl</code>) für Verschiebungen angelegt.</p>
+<h3 id="rol-reg-value-1-value-rol-reg-value-1-reg-value-2">rol reg
+(value 1), value / rol reg (value 1), reg (value 2)</h3>
+<p>Definition: Rotiere die Werte um <span
+class="math inline">\(n\)</span> Stellen. Dies ist Analog zu shl jedoch
+gehen hier die Bits die nach links raus geschoben werden nicht verloren,
+sondern werden rechts hinzugefügt.</p>
+<p>Beispiel:</p>
+<pre><code>rol rax, rdx
+rol rax, 1</code></pre>
+<p>Beispiel under the hood:</p>
+<pre><code>rax = 1100 0100
+
+rol rax, 1
+=&gt; rax = 1000 1001</code></pre>
+<h3 id="ror-reg-value-1-value-ror-reg-value-1-reg-value-2">ror reg
+(value 1), value / ror reg (value 1), reg (value 2)</h3>
+<p>Definition: Rotiere die Werte um <span
+class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
+<code>rol</code></p>
+<p>Beispiel:</p>
+<pre><code>ror rax, rdx
+ror rax, 1</code></pre>
 <h2 id="arithmetische-operationen">Arithmetische-Operationen:</h2>
 <h3 id="neg-reg-value-1">neg reg (value 1):</h3>
 <p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er

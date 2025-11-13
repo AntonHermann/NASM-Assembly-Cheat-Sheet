@@ -111,69 +111,6 @@ Beispiel:
 	mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 	mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)
 
-### shl reg (value 1), value / shl reg (value 1), cl
-Definition:
-Shifte den Wert des Registers um $n$ Stellen nach Links.
-Bits die nach Links "rausgeschoben" werden gehen verloren
-
-Beispiel:
-
-	shl rax, cl ; Verschiebe alle Bits von rax um n-Stellen (Entsprechend des Wertes aus cl)
-	shl rax, 1   ; Verschiebe alle Bits
-
-Beispiel under the hood:
-
-	rax = 1100 0011
-
-	shl rax, 1
-
-	=> rax = 1000 0110
-
-ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register `cl` als
-Registerverschiebungswert nehmen!
-Dies ist dadurch begründet, dass bei der Entwicklung eines x86-Chips nur eine
-Verbindung des Count-Registers (`cl`) angelegt wurde für Verschiebungen.
-
-### shr reg (value 1), value / shr reg (value 1), cl
-Definition:
-Shifte den Wert des Registers um n Stellen nach Rechts. Also analog zu `shl`.
-
-Beispiel:
-
-	shr rax, cl
-	shr rax, 1
-
-ACHTUNG: Sowohl `shr`, als auch `shl` können nur das Register `cl` als
-Registerverschiebungswert nutzen!
-Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des Count-Registers
-(`cl`) für Verschiebungen angelegt.
-
-### rol reg (value 1), value / rol reg (value 1), reg (value 2)
-Definition: Rotiere die Werte um $n$ Stellen.
-Dies ist Analog zu shl jedoch gehen hier die Bits die nach links raus
-geschoben werden nicht verloren, sondern werden rechts hinzugefügt.
-
-Beispiel:
-
-	rol rax, rdx
-	rol rax, 1
-
-Beispiel under the hood:
-
-	rax = 1100 0100
-
-	rol rax, 1
-	=> rax = 1000 1001
-
-
-### ror reg (value 1), value / ror reg (value 1), reg (value 2)
-Definition: Rotiere die Werte um $n$ Stellen nach Rechts. Also analog zu `rol`
-
-Beispiel:
-
-	ror rax, rdx
-	ror rax, 1
-
 ## Bit-Operationen:
 
 ### and reg (value 1), value / and reg (value 1), reg (value 2)
@@ -241,6 +178,69 @@ Beispiel under the hood:
 	1000 1111
 	---------
 	0000 1011 = rdx
+
+### shl reg (value 1), value / shl reg (value 1), cl
+Definition:
+Shifte den Wert des Registers um $n$ Stellen nach Links.
+Bits die nach Links "rausgeschoben" werden gehen verloren
+
+Beispiel:
+
+	shl rax, cl ; Verschiebe alle Bits von rax um n-Stellen (Entsprechend des Wertes aus cl)
+	shl rax, 1   ; Verschiebe alle Bits
+
+Beispiel under the hood:
+
+	rax = 1100 0011
+
+	shl rax, 1
+
+	=> rax = 1000 0110
+
+ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register `cl` als
+Registerverschiebungswert nehmen!
+Dies ist dadurch begründet, dass bei der Entwicklung eines x86-Chips nur eine
+Verbindung des Count-Registers (`cl`) angelegt wurde für Verschiebungen.
+
+### shr reg (value 1), value / shr reg (value 1), cl
+Definition:
+Shifte den Wert des Registers um n Stellen nach Rechts. Also analog zu `shl`.
+
+Beispiel:
+
+	shr rax, cl
+	shr rax, 1
+
+ACHTUNG: Sowohl `shr`, als auch `shl` können nur das Register `cl` als
+Registerverschiebungswert nutzen!
+Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des Count-Registers
+(`cl`) für Verschiebungen angelegt.
+
+### rol reg (value 1), value / rol reg (value 1), reg (value 2)
+Definition: Rotiere die Werte um $n$ Stellen.
+Dies ist Analog zu shl jedoch gehen hier die Bits die nach links raus
+geschoben werden nicht verloren, sondern werden rechts hinzugefügt.
+
+Beispiel:
+
+	rol rax, rdx
+	rol rax, 1
+
+Beispiel under the hood:
+
+	rax = 1100 0100
+
+	rol rax, 1
+	=> rax = 1000 1001
+
+
+### ror reg (value 1), value / ror reg (value 1), reg (value 2)
+Definition: Rotiere die Werte um $n$ Stellen nach Rechts. Also analog zu `rol`
+
+Beispiel:
+
+	ror rax, rdx
+	ror rax, 1
 
 ## Arithmetische-Operationen:
 
