@@ -302,11 +302,13 @@ Beispiel:
 
 	div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax
 
-ACHTUNG: Prüfe vor der Division, ob der Wert, der sich in rdx befindet,
-korrekt ist.
-Dort könnte sich 1. ein Wert befinden, der nichts mit der gewollten Rechnung zu
-tun hat und 2. ein Wert drin befinden der nach der Division erhalten bleiben
-sollte.
+ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax.
+Also aufpassen, dass nicht ungewollt noch was in rdx steht.
+Übliches Muster:
+
+	mov rsi, 3
+	mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
+	div rsi    ; Dividiere rax durch 3
 
 ### imul reg (value 1) und idiv reg (value 1):
 Definition:

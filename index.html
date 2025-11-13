@@ -665,10 +665,12 @@ durch den Wert aus dem angegebenen Register. Ergebnis wird in rax
 (ganzzahlige Division) und rdx (Rest) gespeichert</p>
 <p>Beispiel:</p>
 <pre><code>div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax</code></pre>
-<p>ACHTUNG: Prüfe vor der Division, ob der Wert, der sich in rdx
-befindet, korrekt ist. Dort könnte sich 1. ein Wert befinden, der nichts
-mit der gewollten Rechnung zu tun hat und 2. ein Wert drin befinden der
-nach der Division erhalten bleiben sollte.</p>
+<p>ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax. Also
+aufpassen, dass nicht ungewollt noch was in rdx steht. Übliches
+Muster:</p>
+<pre><code>mov rsi, 3
+mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
+div rsi    ; Dividiere rax durch 3</code></pre>
 <h3 id="imul-reg-value-1-und-idiv-reg-value-1">imul reg (value 1) und
 idiv reg (value 1):</h3>
 <p>Definition: Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen
