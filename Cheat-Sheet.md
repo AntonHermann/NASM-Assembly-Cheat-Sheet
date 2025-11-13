@@ -629,6 +629,7 @@ Hierzu findet ihr eine kleine Zusammenfassung von Befehlen zur Ausführung des
 	gdb> break SOME_LABEL_IN_YOUR_CODE	Setze einen "Breakpoint" bei dem dein Programm hält
 	gdb> tui enable 					Aktiviere die UI
 	gdb> layout asm						Zeige den Assembly-Code deines Programms
+	gdb> set disassembly-flavor intel   Syntax wie gewohnt darstellen (mov rax,0x0 statt mov $0x0,%rax)
 	gdb> layout regs					Zeige deine Register während des Programmlaufs
 	gdb> run							Starte Ausführung des Programms
 	gdb> ni								Next Instruction

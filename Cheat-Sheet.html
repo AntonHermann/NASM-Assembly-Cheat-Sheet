@@ -770,6 +770,7 @@ einer Terminal "UI":</p>
 gdb&gt; break SOME_LABEL_IN_YOUR_CODE  Setze einen &quot;Breakpoint&quot; bei dem dein Programm hält
 gdb&gt; tui enable                     Aktiviere die UI
 gdb&gt; layout asm                     Zeige den Assembly-Code deines Programms
+gdb&gt; set disassembly-flavor intel   Syntax wie gewohnt darstellen (mov rax,0x0 statt mov $0x0,%rax)
 gdb&gt; layout regs                    Zeige deine Register während des Programmlaufs
 gdb&gt; run                            Starte Ausführung des Programms
 gdb&gt; ni                             Next Instruction
