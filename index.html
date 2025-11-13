@@ -341,32 +341,35 @@ Komplement).</p>
 <p>Beispiel:</p>
 <pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
 <h3 id="mul-reg1">mul reg1:</h3>
-<p>Definition: Multipliziere den Wert in Register rax mit dem Wert des
-angegebenen Registers. Das Ergebnis wird in die <em>beiden (!!!)</em>
-Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in
-rax passiert)</p>
+<p>Definition: Multipliziere den Wert in Register <code>rax</code> mit
+dem Wert des angegebenen Registers. Das Ergebnis wird in die
+<strong>beiden (!!!)</strong> Registern <code>rax</code> und
+<code>rdx</code> gespeichert (<code>rdx</code>, falls ein Überlauf der
+Zahl in <code>rax</code> passiert)</p>
 <p>Beispiel:</p>
 <pre><code>mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax</code></pre>
 <p>ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden.
-Falls man das Register rax mit einem bestimmten Wert multiplizieren
-möchte muss man diesen vorher in ein Register verschieben:</p>
+Falls man das Register <code>rax</code> mit einem bestimmten Wert
+multiplizieren möchte muss man diesen vorher in ein Register
+verschieben:</p>
 <pre><code>mov rsi, 3
 mul rsi    ; Multipliziere rax mit 3</code></pre>
 <h3 id="div-reg1">div reg1:</h3>
-<p>Definition: Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax)
-durch den Wert aus dem angegebenen Register. Ergebnis wird in rax
-(ganzzahlige Division) und rdx (Rest) gespeichert</p>
+<p>Definition: Dividiere den Wert aus <code>rdx:rax</code>
+(<code>rdx</code> konkateniert mit <code>rax</code>) durch den Wert aus
+dem angegebenen Register. Ergebnis wird in <code>rax</code> (ganzzahlige
+Division) und <code>rdx</code> (Rest) gespeichert</p>
 <p>Beispiel:</p>
 <pre><code>div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax</code></pre>
-<p>ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax. Also
-aufpassen, dass nicht ungewollt noch was in rdx steht. Übliches
-Muster:</p>
+<p>ACHTUNG: Der Divisor ist nicht nur <code>rax</code>, sondern
+<code>rdx:rax</code>. Also aufpassen, dass nicht ungewollt noch was in
+<code>rdx</code> steht. Übliches Muster:</p>
 <pre><code>mov rsi, 3
 mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
 div rsi    ; Dividiere rax durch 3</code></pre>
 <h3 id="imul-reg1-und-idiv-reg1">imul reg1 und idiv reg1:</h3>
-<p>Definition: Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen
-mit Vorzeichen)</p>
+<p>Definition: Analog zu <code>mul</code>/<code>div</code>, aber mit
+signed Zahlen (d.h. Zahlen mit Vorzeichen)</p>
 <h2 id="bit-operationen">Bit-Operationen:</h2>
 <h3 id="and-reg1-value--and-reg1-reg2">and reg1, value / and reg1,
 reg2</h3>
@@ -443,11 +446,11 @@ shl rax, 1   ; Verschiebe alle Bits</code></pre>
 shl rax, 1
 
 =&gt; rax = 1000 0110</code></pre>
-<p>ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register
-<code>cl</code> als Registerverschiebungswert nehmen! Dies ist dadurch
-begründet, dass bei der Entwicklung eines x86-Chips nur eine Verbindung
-des Count-Registers (<code>cl</code>) angelegt wurde für
-Verschiebungen.</p>
+<p>ACHTUNG: Sowohl <code>shr</code>, als auch <code>shl</code> nutzen
+können nur das Register <code>cl</code> als Registerverschiebungswert
+nehmen! Dies ist dadurch begründet, dass bei der Entwicklung eines
+x86-Chips nur eine Verbindung des Count-Registers (<code>cl</code>)
+angelegt wurde für Verschiebungen.</p>
 <h3 id="shr-reg1-value--shr-reg1-cl">shr reg1, value / shr reg1, cl</h3>
 <p>Definition: Shifte den Wert des Registers um n Stellen nach Rechts.
 Also analog zu <code>shl</code>.</p>
@@ -609,9 +612,9 @@ den Beginn des Stacks währenddessen der Stack-Pointer auf die nächste
 belegte Adresse zeigt. Der Stack wächst, wenn <code>rsp</code> kleiner
 wird. Daher "wächst" der Stack nach unten. (Der Stack ist "full
 descending".)</p>
-<p>WICHTIG: nach dem Funktionsaufruf (also vor dem ret Befehl) muss der
-Stack-Pointer wieder auf der selben Stelle sein wie zu Beginn des
-Funktionsaufrufs!</p>
+<p>WICHTIG: nach dem Funktionsaufruf (also vor dem <code>ret</code>
+Befehl) muss der Stack-Pointer wieder auf der selben Stelle sein wie zu
+Beginn des Funktionsaufrufs!</p>
 <h3 id="push-reg">push reg:</h3>
 <p>Definition: Um Daten auf den Stack zu legen nutzt man den
 <code>push</code>-Befehl. Dieser legt dann den Wert des angegebenen

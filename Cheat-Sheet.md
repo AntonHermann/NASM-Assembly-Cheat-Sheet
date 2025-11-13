@@ -170,27 +170,27 @@ Beispiel:
 
 ### mul reg1:
 Definition:
-Multipliziere den Wert in Register rax mit dem Wert des angegebenen Registers. Das Ergebnis wird in die *beiden (!!!)* Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in rax passiert)
+Multipliziere den Wert in Register `rax` mit dem Wert des angegebenen Registers. Das Ergebnis wird in die **beiden (!!!)** Registern `rax` und `rdx` gespeichert (`rdx`, falls ein Überlauf der Zahl in `rax` passiert)
 
 Beispiel:
 
 	mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax
 
-ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden. Falls man das Register rax mit einem bestimmten Wert multiplizieren möchte muss man diesen vorher in ein Register verschieben:
+ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden. Falls man das Register `rax` mit einem bestimmten Wert multiplizieren möchte muss man diesen vorher in ein Register verschieben:
 
 	mov rsi, 3
 	mul rsi    ; Multipliziere rax mit 3
 
 ### div reg1:
 Definition:
-Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax) durch den Wert aus dem angegebenen Register. Ergebnis wird in rax (ganzzahlige Division) und rdx (Rest) gespeichert
+Dividiere den Wert aus `rdx:rax` (`rdx` konkateniert mit `rax`) durch den Wert aus dem angegebenen Register. Ergebnis wird in `rax` (ganzzahlige Division) und `rdx` (Rest) gespeichert
 
 Beispiel:
 
 	div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax
 
-ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax.
-Also aufpassen, dass nicht ungewollt noch was in rdx steht.
+ACHTUNG: Der Divisor ist nicht nur `rax`, sondern `rdx:rax`.
+Also aufpassen, dass nicht ungewollt noch was in `rdx` steht.
 Übliches Muster:
 
 	mov rsi, 3
@@ -199,7 +199,7 @@ Also aufpassen, dass nicht ungewollt noch was in rdx steht.
 
 ### imul reg1 und idiv reg1:
 Definition:
-Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen mit Vorzeichen)
+Analog zu `mul`/`div`, aber mit signed Zahlen (d.h. Zahlen mit Vorzeichen)
 
 ## Bit-Operationen:
 
@@ -297,7 +297,7 @@ Beispiel under the hood:
 
 	=> rax = 1000 0110
 
-ACHTUNG: Sowohl shr, als auch shl nutzen können nur das Register `cl` als
+ACHTUNG: Sowohl `shr`, als auch `shl` nutzen können nur das Register `cl` als
 Registerverschiebungswert nehmen!
 Dies ist dadurch begründet, dass bei der Entwicklung eines x86-Chips nur eine
 Verbindung des Count-Registers (`cl`) angelegt wurde für Verschiebungen.
@@ -431,7 +431,7 @@ Stack-Pointer auf die nächste belegte Adresse zeigt.
 Der Stack wächst, wenn `rsp` kleiner wird. Daher "wächst" der Stack nach 
 unten. (Der Stack ist "full descending".)
 
-WICHTIG: nach dem Funktionsaufruf (also vor dem ret Befehl)
+WICHTIG: nach dem Funktionsaufruf (also vor dem `ret` Befehl)
 muss der Stack-Pointer wieder auf der selben Stelle sein wie zu Beginn des
 Funktionsaufrufs!
 
