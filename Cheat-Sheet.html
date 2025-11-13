@@ -169,6 +169,131 @@ manuell vor dem Aufruf sichern.</p>
 </tr>
 </tbody>
 </table>
+<h1 id="befehle-übersicht">Befehle (Übersicht)</h1>
+<p>Notation: reg = Register (<code>rax</code>, ...), imm = Immediate
+(idR. eine Zahl)</p>
+<table>
+<thead>
+<tr class="header">
+<th>Befehl</th>
+<th>Arg1</th>
+<th>Arg2</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#mov-reg-to-value--mov-reg-to-reg-from">mov</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#and-reg1-value--and-reg1-reg2">and</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 &amp; reg2/imm</td>
+</tr>
+<tr class="odd">
+<td><a href="#or-reg1-value--or-reg1-reg2">or</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 | reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#xor-reg1-value--xor-reg1-reg2">xor</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 ^ reg2/imm</td>
+</tr>
+<tr class="odd">
+<td><a href="#not-reg1">not</a></td>
+<td>reg1</td>
+<td></td>
+<td>reg1 = ~reg1</td>
+</tr>
+<tr class="even">
+<td><a href="#shl-reg1-value--shl-reg1-cl">shl</a></td>
+<td>reg1</td>
+<td><code>cl</code>/imm</td>
+<td>reg1 = reg1 &lt;&lt; <code>cl</code>/imm</td>
+</tr>
+<tr class="odd">
+<td><a href="#shr-reg1-value--shr-reg1-cl">shr</a></td>
+<td>reg1</td>
+<td><code>cl</code>/imm</td>
+<td>reg1 = reg1 &gt;&gt; <code>cl</code>/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#neg-reg1">neg</a></td>
+<td>reg1</td>
+<td></td>
+<td>reg1 = -reg1 (2er Komplement)</td>
+</tr>
+<tr class="odd">
+<td><a href="#add-reg1-value--add-reg1-reg2">add</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 + reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#sub-reg1-value--sub-reg1-reg2">sub</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 - reg2/imm</td>
+</tr>
+<tr class="odd">
+<td><a href="#mul-reg1">mul</a></td>
+<td>reg1</td>
+<td></td>
+<td><code>rdx:rax</code> = <code>rax</code> * reg1 (unsigned)</td>
+</tr>
+<tr class="even">
+<td><a href="#div-reg1">div</a></td>
+<td>reg1</td>
+<td></td>
+<td><code>rax</code> = <code>rdx:rax</code> / reg1 (Rest in
+<code>rdx</code>)</td>
+</tr>
+<tr class="odd">
+<td><a href="#imul-reg1-und-idiv-reg1">imul</a></td>
+<td>reg1</td>
+<td></td>
+<td><code>rdx:rax</code> = <code>rax</code> * reg1 (signed)</td>
+</tr>
+<tr class="even">
+<td><a href="#imul-reg1-und-idiv-reg1">idiv</a></td>
+<td>reg1</td>
+<td></td>
+<td><code>rax</code> = <code>rdx:rax</code> / reg1 (Rest in
+<code>rdx</code>)</td>
+</tr>
+<tr class="odd">
+<td><a href="#cmp-reg1-value--cmp-reg1-reg2">cmp</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 - reg2/imm (setzt nur <code>rflags</code>)</td>
+</tr>
+<tr class="even">
+<td><a href="#test-reg1-value--test-reg1-reg2">test</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 ^ reg2/imm (setzt nur <code>rflags</code>)</td>
+</tr>
+<tr class="odd">
+<td><a href="#jmp-some_label">jmp</a></td>
+<td>label</td>
+<td></td>
+<td>Sprung zu label (<code>rip</code> = addr of label)</td>
+</tr>
+<tr class="even">
+<td><a href="#jx-some_label">j<em>X</em></a></td>
+<td>label</td>
+<td></td>
+<td>Bedingter Sprung (nur wenn Bedingung erfüllt)</td>
+</tr>
+</tbody>
+</table>
 <h1 id="befehle">Befehle</h1>
 <h2 id="bewegen-von-daten">Bewegen von Daten:</h2>
 <h3 id="mov-reg-to-value--mov-reg-to-reg-from">mov reg (to), value / mov
@@ -179,8 +304,8 @@ weiteres Register.</p>
 <pre><code>mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)</code></pre>
 <h2 id="bit-operationen">Bit-Operationen:</h2>
-<h3 id="and-reg-value-1-value--and-reg-value-1-reg-value-2">and reg
-(value 1), value / and reg (value 1), reg (value 2)</h3>
+<h3 id="and-reg1-value--and-reg1-reg2">and reg1, value / and reg1,
+reg2</h3>
 <p>Definition: Wendet das logische UND (<span
 class="math inline">\(\land\)</span>) mit dem Wert des zweiten
 Parameters auf den Wert des ersten Registers an und speichert das
@@ -198,8 +323,7 @@ and rax, rsi = 0101 1101 and 1101 1011
 1001 1011
 ---------
 0001 1001 = rax</code></pre>
-<h3 id="or-reg-value-1-value--or-reg-value-1-reg-value-2">or reg (value
-1), value / or reg (value 1), reg (value 2)</h3>
+<h3 id="or-reg1-value--or-reg1-reg2">or reg1, value / or reg1, reg2</h3>
 <p>Definition: Wende das logische ODER (<span
 class="math inline">\(\lor\)</span>) mit dem Wert des zweiten Parameters
 auf das erste Register an und speichert das Ergebnis im ersten
@@ -217,8 +341,8 @@ or rdx, 0xf = 0011 1101 or 0000 1101
 0000 1101
 ---------
 0011 1101 = rdx</code></pre>
-<h3 id="xor-reg-value-1-value--xor-reg-value-1-reg-value-2">xor reg
-(value 1), value / xor reg (value 1), reg (value 2):</h3>
+<h3 id="xor-reg1-value--xor-reg1-reg2">xor reg1, value / xor reg1,
+reg2:</h3>
 <p>Definition: Wendet das logische XOR (<span
 class="math inline">\(\oplus\)</span>) mit dem Wert des zweiten
 Parameters auf den Wert des ersten Registers an.</p>
@@ -235,15 +359,14 @@ xor rdx, 0x8f
 1000 1111
 ---------
 0000 1011 = rdx</code></pre>
-<h3 id="not-reg-value-1">not reg (value 1):</h3>
+<h3 id="not-reg1">not reg1:</h3>
 <p>Definition: Invertiert den Wert im ersten Register (alle 0en werden
 zu 1en und umgekehrt).</p>
 <p>Beispiel:</p>
 <pre><code>; rdx = 0011 1011
 neg rdx
 ; rdx = 1100 0100</code></pre>
-<h3 id="shl-reg-value-1-value--shl-reg-value-1-cl">shl reg (value 1),
-value / shl reg (value 1), cl</h3>
+<h3 id="shl-reg1-value--shl-reg1-cl">shl reg1, value / shl reg1, cl</h3>
 <p>Definition: Shifte den Wert des Registers um <span
 class="math inline">\(n\)</span> Stellen nach Links. Bits die nach Links
 "rausgeschoben" werden gehen verloren</p>
@@ -261,8 +384,7 @@ shl rax, 1
 begründet, dass bei der Entwicklung eines x86-Chips nur eine Verbindung
 des Count-Registers (<code>cl</code>) angelegt wurde für
 Verschiebungen.</p>
-<h3 id="shr-reg-value-1-value--shr-reg-value-1-cl">shr reg (value 1),
-value / shr reg (value 1), cl</h3>
+<h3 id="shr-reg1-value--shr-reg1-cl">shr reg1, value / shr reg1, cl</h3>
 <p>Definition: Shifte den Wert des Registers um n Stellen nach Rechts.
 Also analog zu <code>shl</code>.</p>
 <p>Beispiel:</p>
@@ -272,8 +394,8 @@ shr rax, 1</code></pre>
 nur das Register <code>cl</code> als Registerverschiebungswert nutzen!
 Bei der Entwicklung der x86-Chips wurde nur eine Verbindung des
 Count-Registers (<code>cl</code>) für Verschiebungen angelegt.</p>
-<h3 id="rol-reg-value-1-value--rol-reg-value-1-reg-value-2">rol reg
-(value 1), value / rol reg (value 1), reg (value 2)</h3>
+<h3 id="rol-reg1-value--rol-reg1-reg2">rol reg1, value / rol reg1,
+reg2</h3>
 <p>Definition: Rotiere die Werte um <span
 class="math inline">\(n\)</span> Stellen. Dies ist Analog zu shl jedoch
 gehen hier die Bits die nach links raus geschoben werden nicht verloren,
@@ -286,8 +408,8 @@ rol rax, 1</code></pre>
 
 rol rax, 1
 =&gt; rax = 1000 1001</code></pre>
-<h3 id="ror-reg-value-1-value--ror-reg-value-1-reg-value-2">ror reg
-(value 1), value / ror reg (value 1), reg (value 2)</h3>
+<h3 id="ror-reg1-value--ror-reg1-reg2">ror reg1, value / ror reg1,
+reg2</h3>
 <p>Definition: Rotiere die Werte um <span
 class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
 <code>rol</code></p>
@@ -295,25 +417,25 @@ class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
 <pre><code>ror rax, rdx
 ror rax, 1</code></pre>
 <h2 id="arithmetische-operationen">Arithmetische-Operationen:</h2>
-<h3 id="neg-reg-value-1">neg reg (value 1):</h3>
+<h3 id="neg-reg1">neg reg1:</h3>
 <p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er
 Komplement).</p>
 <p>Beispiel:</p>
 <pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
-<h3 id="add-reg-value-1-value--add-reg-value-1-reg-value-2">add reg
-(value 1), value / add reg (value 1), reg (value 2):</h3>
+<h3 id="add-reg1-value--add-reg1-reg2">add reg1, value / add reg1,
+reg2:</h3>
 <p>Definition: Addiere einen Wert bzw. den Wert eines Registers auf den
 Wert eines anderen Registers.</p>
 <p>Beispiel:</p>
 <pre><code>add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
 add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)</code></pre>
-<h3 id="sub-reg-value-1-value--sub-reg-value-1-reg-value-2">sub reg
-(value 1), value / sub reg (value 1), reg (value 2):</h3>
+<h3 id="sub-reg1-value--sub-reg1-reg2">sub reg1, value / sub reg1,
+reg2:</h3>
 <p>Definition: Analog zu <code>add</code> jedoch als Subtraktion</p>
 <p>Beispiele:</p>
 <pre><code>sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
 sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)</code></pre>
-<h3 id="mul-reg-value-1">mul reg (value 1):</h3>
+<h3 id="mul-reg1">mul reg1:</h3>
 <p>Definition: Multipliziere den Wert in Register rax mit dem Wert des
 angegebenen Registers. Das Ergebnis wird in die <em>beiden (!!!)</em>
 Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in
@@ -325,7 +447,7 @@ Falls man das Register rax mit einem bestimmten Wert multiplizieren
 möchte muss man diesen vorher in ein Register verschieben:</p>
 <pre><code>mov rsi, 3
 mul rsi    ; Multipliziere rax mit 3</code></pre>
-<h3 id="div-reg-value-1">div reg (value 1):</h3>
+<h3 id="div-reg1">div reg1:</h3>
 <p>Definition: Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax)
 durch den Wert aus dem angegebenen Register. Ergebnis wird in rax
 (ganzzahlige Division) und rdx (Rest) gespeichert</p>
@@ -337,14 +459,13 @@ Muster:</p>
 <pre><code>mov rsi, 3
 mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
 div rsi    ; Dividiere rax durch 3</code></pre>
-<h3 id="imul-reg-value-1-und-idiv-reg-value-1">imul reg (value 1) und
-idiv reg (value 1):</h3>
+<h3 id="imul-reg1-und-idiv-reg1">imul reg1 und idiv reg1:</h3>
 <p>Definition: Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen
 mit Vorzeichen)</p>
 <h2 id="vergleichesprünge-und-bedinge-sprünge">Vergleiche/Sprünge und
 Bedinge Sprünge:</h2>
-<h3 id="cmp-reg-value-1-value--cmp-reg-value-1-reg-value-2">cmp reg
-(value 1), value / cmp reg (value 1), reg (value 2):</h3>
+<h3 id="cmp-reg1-value--cmp-reg1-reg2">cmp reg1, value / cmp reg1,
+reg2:</h3>
 <p>Definition: Vergleiche ein Register mit einem Wert bzw. mit dem Wert
 eines weiteren Registers. Diese Operation setzt Bits im Flag-Register
 die später für Bedingte-Sprünge verwendet werden könnten</p>
@@ -438,8 +559,8 @@ jl .some_label
 
 .some_label:
 ; execute here if rax &lt; 2</code></pre>
-<h3 id="test-reg-value-1-value--test-reg-value-1-reg-value-2">test reg
-(value 1), value / test reg (value 1), reg (value 2):</h3>
+<h3 id="test-reg1-value--test-reg1-reg2">test reg1, value / test reg1,
+reg2:</h3>
 <p>Definition: Führt ein logisches UND (<span
 class="math inline">\(\land\)</span>) auf das erste Register mit dem
 Wert des zweiten Registers bzw. dem angegebenen Wert aus. Das Ergebnis
