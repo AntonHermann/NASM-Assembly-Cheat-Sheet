@@ -643,3 +643,4 @@ Hierzu findet ihr eine kleine Zusammenfassung von Befehlen zur Ausführung des
 * https://stackoverflow.com/questions/18024672/what-registers-are-preserved-through-a-linux-x86-64-function-call
 * https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
 * https://cs61.seas.harvard.edu/site/2018/Asm1/
+* https://www.felixcloutier.com/x86/ (all x86 instructions, including detailled description e.g. affected flags)
