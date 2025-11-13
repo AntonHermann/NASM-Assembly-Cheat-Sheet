@@ -189,104 +189,122 @@ manuell vor dem Aufruf sichern.</p>
 <td>reg1 = reg2/imm</td>
 </tr>
 <tr class="even">
-<td><a href="#and-reg1-value--and-reg1-reg2">and</a></td>
-<td>reg1</td>
-<td>reg2/imm</td>
-<td>reg1 = reg1 &amp; reg2/imm</td>
-</tr>
-<tr class="odd">
-<td><a href="#or-reg1-value--or-reg1-reg2">or</a></td>
-<td>reg1</td>
-<td>reg2/imm</td>
-<td>reg1 = reg1 | reg2/imm</td>
-</tr>
-<tr class="even">
-<td><a href="#xor-reg1-value--xor-reg1-reg2">xor</a></td>
-<td>reg1</td>
-<td>reg2/imm</td>
-<td>reg1 = reg1 ^ reg2/imm</td>
-</tr>
-<tr class="odd">
-<td><a href="#not-reg1">not</a></td>
-<td>reg1</td>
 <td></td>
-<td>reg1 = ~reg1</td>
-</tr>
-<tr class="even">
-<td><a href="#shl-reg1-value--shl-reg1-cl">shl</a></td>
-<td>reg1</td>
-<td><code>cl</code>/imm</td>
-<td>reg1 = reg1 &lt;&lt; <code>cl</code>/imm</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td><a href="#shr-reg1-value--shr-reg1-cl">shr</a></td>
-<td>reg1</td>
-<td><code>cl</code>/imm</td>
-<td>reg1 = reg1 &gt;&gt; <code>cl</code>/imm</td>
-</tr>
-<tr class="even">
 <td><a href="#add-reg1-value--add-reg1-reg2">add</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 = reg1 + reg2/imm</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="#sub-reg1-value--sub-reg1-reg2">sub</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 = reg1 - reg2/imm</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#neg-reg1">neg</a></td>
 <td>reg1</td>
 <td></td>
 <td>reg1 = -reg1 (2er Komplement)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="#mul-reg1">mul</a></td>
 <td>reg1</td>
 <td></td>
 <td><code>rdx:rax</code> = <code>rax</code> * reg1 (unsigned)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#div-reg1">div</a></td>
 <td>reg1</td>
 <td></td>
 <td><code>rax</code> = <code>rdx:rax</code> / reg1 (Rest in
 <code>rdx</code>)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="#imul-reg1-und-idiv-reg1">imul</a></td>
 <td>reg1</td>
 <td></td>
 <td><code>rdx:rax</code> = <code>rax</code> * reg1 (signed)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#imul-reg1-und-idiv-reg1">idiv</a></td>
 <td>reg1</td>
 <td></td>
 <td><code>rax</code> = <code>rdx:rax</code> / reg1 (Rest in
 <code>rdx</code>)</td>
 </tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr class="odd">
+<td><a href="#and-reg1-value--and-reg1-reg2">and</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 &amp; reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#or-reg1-value--or-reg1-reg2">or</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 | reg2/imm</td>
+</tr>
+<tr class="odd">
+<td><a href="#xor-reg1-value--xor-reg1-reg2">xor</a></td>
+<td>reg1</td>
+<td>reg2/imm</td>
+<td>reg1 = reg1 ^ reg2/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#not-reg1">not</a></td>
+<td>reg1</td>
+<td></td>
+<td>reg1 = ~reg1</td>
+</tr>
+<tr class="odd">
+<td><a href="#shl-reg1-value--shl-reg1-cl">shl</a></td>
+<td>reg1</td>
+<td><code>cl</code>/imm</td>
+<td>reg1 = reg1 &lt;&lt; <code>cl</code>/imm</td>
+</tr>
+<tr class="even">
+<td><a href="#shr-reg1-value--shr-reg1-cl">shr</a></td>
+<td>reg1</td>
+<td><code>cl</code>/imm</td>
+<td>reg1 = reg1 &gt;&gt; <code>cl</code>/imm</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
 <td><a href="#cmp-reg1-value--cmp-reg1-reg2">cmp</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 - reg2/imm (setzt nur <code>rflags</code>)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#test-reg1-value--test-reg1-reg2">test</a></td>
 <td>reg1</td>
 <td>reg2/imm</td>
 <td>reg1 ^ reg2/imm (setzt nur <code>rflags</code>)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="#jmp-some_label">jmp</a></td>
 <td>label</td>
 <td></td>
 <td>Sprung zu label (<code>rip</code> = addr of label)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="#jx-some_label">j<em>X</em></a></td>
 <td>label</td>
 <td></td>
@@ -303,6 +321,52 @@ weiteres Register.</p>
 <p>Beispiel:</p>
 <pre><code>mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)</code></pre>
+<h2 id="arithmetische-operationen">Arithmetische-Operationen:</h2>
+<h3 id="add-reg1-value--add-reg1-reg2">add reg1, value / add reg1,
+reg2:</h3>
+<p>Definition: Addiere einen Wert bzw. den Wert eines Registers auf den
+Wert eines anderen Registers.</p>
+<p>Beispiel:</p>
+<pre><code>add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
+add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)</code></pre>
+<h3 id="sub-reg1-value--sub-reg1-reg2">sub reg1, value / sub reg1,
+reg2:</h3>
+<p>Definition: Analog zu <code>add</code> jedoch als Subtraktion</p>
+<p>Beispiele:</p>
+<pre><code>sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
+sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)</code></pre>
+<h3 id="neg-reg1">neg reg1:</h3>
+<p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er
+Komplement).</p>
+<p>Beispiel:</p>
+<pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
+<h3 id="mul-reg1">mul reg1:</h3>
+<p>Definition: Multipliziere den Wert in Register rax mit dem Wert des
+angegebenen Registers. Das Ergebnis wird in die <em>beiden (!!!)</em>
+Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in
+rax passiert)</p>
+<p>Beispiel:</p>
+<pre><code>mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax</code></pre>
+<p>ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden.
+Falls man das Register rax mit einem bestimmten Wert multiplizieren
+möchte muss man diesen vorher in ein Register verschieben:</p>
+<pre><code>mov rsi, 3
+mul rsi    ; Multipliziere rax mit 3</code></pre>
+<h3 id="div-reg1">div reg1:</h3>
+<p>Definition: Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax)
+durch den Wert aus dem angegebenen Register. Ergebnis wird in rax
+(ganzzahlige Division) und rdx (Rest) gespeichert</p>
+<p>Beispiel:</p>
+<pre><code>div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax</code></pre>
+<p>ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax. Also
+aufpassen, dass nicht ungewollt noch was in rdx steht. Übliches
+Muster:</p>
+<pre><code>mov rsi, 3
+mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
+div rsi    ; Dividiere rax durch 3</code></pre>
+<h3 id="imul-reg1-und-idiv-reg1">imul reg1 und idiv reg1:</h3>
+<p>Definition: Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen
+mit Vorzeichen)</p>
 <h2 id="bit-operationen">Bit-Operationen:</h2>
 <h3 id="and-reg1-value--and-reg1-reg2">and reg1, value / and reg1,
 reg2</h3>
@@ -416,52 +480,6 @@ class="math inline">\(n\)</span> Stellen nach Rechts. Also analog zu
 <p>Beispiel:</p>
 <pre><code>ror rax, rdx
 ror rax, 1</code></pre>
-<h2 id="arithmetische-operationen">Arithmetische-Operationen:</h2>
-<h3 id="add-reg1-value--add-reg1-reg2">add reg1, value / add reg1,
-reg2:</h3>
-<p>Definition: Addiere einen Wert bzw. den Wert eines Registers auf den
-Wert eines anderen Registers.</p>
-<p>Beispiel:</p>
-<pre><code>add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
-add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)</code></pre>
-<h3 id="sub-reg1-value--sub-reg1-reg2">sub reg1, value / sub reg1,
-reg2:</h3>
-<p>Definition: Analog zu <code>add</code> jedoch als Subtraktion</p>
-<p>Beispiele:</p>
-<pre><code>sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
-sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)</code></pre>
-<h3 id="neg-reg1">neg reg1:</h3>
-<p>Definition: Negiere den Wert aus dem gegebenen Register (in 2er
-Komplement).</p>
-<p>Beispiel:</p>
-<pre><code>neg rsi ; Negiere den Wert in rsi</code></pre>
-<h3 id="mul-reg1">mul reg1:</h3>
-<p>Definition: Multipliziere den Wert in Register rax mit dem Wert des
-angegebenen Registers. Das Ergebnis wird in die <em>beiden (!!!)</em>
-Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in
-rax passiert)</p>
-<p>Beispiel:</p>
-<pre><code>mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax</code></pre>
-<p>ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden.
-Falls man das Register rax mit einem bestimmten Wert multiplizieren
-möchte muss man diesen vorher in ein Register verschieben:</p>
-<pre><code>mov rsi, 3
-mul rsi    ; Multipliziere rax mit 3</code></pre>
-<h3 id="div-reg1">div reg1:</h3>
-<p>Definition: Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax)
-durch den Wert aus dem angegebenen Register. Ergebnis wird in rax
-(ganzzahlige Division) und rdx (Rest) gespeichert</p>
-<p>Beispiel:</p>
-<pre><code>div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax</code></pre>
-<p>ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax. Also
-aufpassen, dass nicht ungewollt noch was in rdx steht. Übliches
-Muster:</p>
-<pre><code>mov rsi, 3
-mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
-div rsi    ; Dividiere rax durch 3</code></pre>
-<h3 id="imul-reg1-und-idiv-reg1">imul reg1 und idiv reg1:</h3>
-<p>Definition: Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen
-mit Vorzeichen)</p>
 <h2 id="vergleichesprünge-und-bedinge-sprünge">Vergleiche/Sprünge und
 Bedinge Sprünge:</h2>
 <h3 id="cmp-reg1-value--cmp-reg1-reg2">cmp reg1, value / cmp reg1,

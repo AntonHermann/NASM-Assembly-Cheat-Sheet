@@ -104,12 +104,7 @@ Notation: reg = Register (`rax`, ...), imm = Immediate (idR. eine Zahl)
 | Befehl | Arg1  | Arg2     | Bedeutung                   |
 |--------|-------|----------|-----------------------------|
 | [mov](#mov-reg-to-value--mov-reg-to-reg-from) | reg1  | reg2/imm | reg1 = reg2/imm |
-| [and](#and-reg1-value--and-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 & reg2/imm |
-| [or](#or-reg1-value--or-reg1-reg2)            | reg1  | reg2/imm | reg1 = reg1 \| reg2/imm |
-| [xor](#xor-reg1-value--xor-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 ^ reg2/imm |
-| [not](#not-reg1)                              | reg1  |          | reg1 = ~reg1 |
-| [shl](#shl-reg1-value--shl-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 << `cl`/imm |
-| [shr](#shr-reg1-value--shr-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 >> `cl`/imm |
+| |
 | [add](#add-reg1-value--add-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 + reg2/imm |
 | [sub](#sub-reg1-value--sub-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 - reg2/imm |
 | [neg](#neg-reg1)                              | reg1  |          | reg1 = -reg1 (2er Komplement) |
@@ -117,6 +112,14 @@ Notation: reg = Register (`rax`, ...), imm = Immediate (idR. eine Zahl)
 | [div](#div-reg1)                              | reg1  |          | `rax` = `rdx:rax` / reg1 (Rest in `rdx`) |
 | [imul](#imul-reg1-und-idiv-reg1)              | reg1  |          | `rdx:rax` = `rax` * reg1 (signed) |
 | [idiv](#imul-reg1-und-idiv-reg1)              | reg1  |          | `rax` = `rdx:rax` / reg1 (Rest in `rdx`) |
+| |
+| [and](#and-reg1-value--and-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 & reg2/imm |
+| [or](#or-reg1-value--or-reg1-reg2)            | reg1  | reg2/imm | reg1 = reg1 \| reg2/imm |
+| [xor](#xor-reg1-value--xor-reg1-reg2)         | reg1  | reg2/imm | reg1 = reg1 ^ reg2/imm |
+| [not](#not-reg1)                              | reg1  |          | reg1 = ~reg1 |
+| [shl](#shl-reg1-value--shl-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 << `cl`/imm |
+| [shr](#shr-reg1-value--shr-reg1-cl)           | reg1  | `cl`/imm | reg1 = reg1 >> `cl`/imm |
+| |
 | [cmp](#cmp-reg1-value--cmp-reg1-reg2)         | reg1  | reg2/imm | reg1 - reg2/imm (setzt nur `rflags`) |
 | [test](#test-reg1-value--test-reg1-reg2)      | reg1  | reg2/imm | reg1 ^ reg2/imm (setzt nur `rflags`) |
 | [jmp](#jmp-some_label)                        | label |          | Sprung zu label (`rip` = addr of label) |
@@ -135,6 +138,68 @@ Beispiel:
 
 	mov rax, rdx ; Verschiebe Wert von rdx in rax (ergo rax = rdx)
 	mov rsi, 2   ; Verschiebe die Zahl 2 in das Register rsi (ergo rsi = 2)
+
+## Arithmetische-Operationen:
+
+### add reg1, value / add reg1, reg2:
+Definition:
+Addiere einen Wert bzw. den Wert eines Registers auf den Wert eines anderen
+Registers.
+
+Beispiel:
+
+	add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
+	add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)
+
+### sub reg1, value / sub reg1, reg2:
+Definition:
+Analog zu `add` jedoch als Subtraktion
+
+Beispiele:
+
+	sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
+	sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)
+
+### neg reg1:
+Definition:
+Negiere den Wert aus dem gegebenen Register (in 2er Komplement).
+
+Beispiel:
+
+	neg rsi ; Negiere den Wert in rsi
+
+### mul reg1:
+Definition:
+Multipliziere den Wert in Register rax mit dem Wert des angegebenen Registers. Das Ergebnis wird in die *beiden (!!!)* Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in rax passiert)
+
+Beispiel:
+
+	mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax
+
+ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden. Falls man das Register rax mit einem bestimmten Wert multiplizieren möchte muss man diesen vorher in ein Register verschieben:
+
+	mov rsi, 3
+	mul rsi    ; Multipliziere rax mit 3
+
+### div reg1:
+Definition:
+Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax) durch den Wert aus dem angegebenen Register. Ergebnis wird in rax (ganzzahlige Division) und rdx (Rest) gespeichert
+
+Beispiel:
+
+	div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax
+
+ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax.
+Also aufpassen, dass nicht ungewollt noch was in rdx steht.
+Übliches Muster:
+
+	mov rsi, 3
+	mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
+	div rsi    ; Dividiere rax durch 3
+
+### imul reg1 und idiv reg1:
+Definition:
+Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen mit Vorzeichen)
 
 ## Bit-Operationen:
 
@@ -276,68 +341,6 @@ Beispiel:
 
 	ror rax, rdx
 	ror rax, 1
-
-## Arithmetische-Operationen:
-
-### add reg1, value / add reg1, reg2:
-Definition:
-Addiere einen Wert bzw. den Wert eines Registers auf den Wert eines anderen
-Registers.
-
-Beispiel:
-
-	add rax, rdx ; Addiere Wert von rdx auf rax und Speicher Ergebnis in rax (rax = rax + rdx)
-	add rsi, 2   ; Addiere die Zahl 2 auf rsi und Speicher Ergebnis in rsi (rsi = rsi + 2)
-
-### sub reg1, value / sub reg1, reg2:
-Definition:
-Analog zu `add` jedoch als Subtraktion
-
-Beispiele:
-
-	sub rax, rdx ; Subtrahiere von rax den Wert von rdx und speichere das Ergebnis in rax (rax = rax - rdx)
-	sub rsi, 2   ; Subtrahiere von rsi den Wert 2 (rsi = rsi - 2)
-
-### neg reg1:
-Definition:
-Negiere den Wert aus dem gegebenen Register (in 2er Komplement).
-
-Beispiel:
-
-	neg rsi ; Negiere den Wert in rsi
-
-### mul reg1:
-Definition:
-Multipliziere den Wert in Register rax mit dem Wert des angegebenen Registers. Das Ergebnis wird in die *beiden (!!!)* Register rax und rdx gespeichert (rdx, falls ein Überlauf der Zahl in rax passiert)
-
-Beispiel:
-
-	mul rsi ; Multipliziere den Wert in rax mit dem Wert aus rsi und speichere das Ergebnis in (rdx) rax
-
-ACHTUNG: Dieser Befehl kann nicht mit einem Wert genutzt werden. Falls man das Register rax mit einem bestimmten Wert multiplizieren möchte muss man diesen vorher in ein Register verschieben:
-
-	mov rsi, 3
-	mul rsi    ; Multipliziere rax mit 3
-
-### div reg1:
-Definition:
-Dividiere den Wert aus rdx:rax (rdx konkateniert mit rax) durch den Wert aus dem angegebenen Register. Ergebnis wird in rax (ganzzahlige Division) und rdx (Rest) gespeichert
-
-Beispiel:
-
-	div rsi ; Dividiert rdx:rax durch den Wert in rsi. Rest wird in rdx gespeichert und Wert der ganzzahligen Division in rax
-
-ACHTUNG: Der Divisor ist nicht nur rax, sondern rdx:rax.
-Also aufpassen, dass nicht ungewollt noch was in rdx steht.
-Übliches Muster:
-
-	mov rsi, 3
-	mov rdx, 0 ; Sicherstellen, dass obere 64 Bit des Divisors 0 sind
-	div rsi    ; Dividiere rax durch 3
-
-### imul reg1 und idiv reg1:
-Definition:
-Analog zu mul/div, aber mit signed Zahlen (d.h. Zahlen mit Vorzeichen)
 
 ## Vergleiche/Sprünge und Bedinge Sprünge:
 
