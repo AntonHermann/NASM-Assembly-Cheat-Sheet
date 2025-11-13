@@ -519,29 +519,29 @@ Die Multiplikation bzw. die Division einer Zahl der Basis $b$ mit einer Zahl
 der Form $b^n$ kann als einfache "Verschiebung" um $n$ Stellen betrachtet werden.
 Gucken wir uns dies zuerst im Dezimalsystem mit 10-er Potenzen an:
 
-\begin{align*}
+$$\begin{align*}
 	12 \cdot 10^1 &= 12 \cdot 10   &&= 120 \\
 	12 \cdot 10^2 &= 12 \cdot 100  &&= 1200 \\
 	12 \cdot 10^3 &= 12 \cdot 1000 &&= 12000
-\end{align*}
+\end{align*}$$
 
-\begin{align*}
+$$\begin{align*}
 	12 \div 10^1 &= 12 \div 10   &&= 1.2 \\
 	12 \div 10^2 &= 12 \div 100  &&= 0.12 \\
 	12 \div 10^3 &= 12 \div 1000 &&= 0.012
-\end{align*}
+\end{align*}$$
 
 Im Binärsystem gilt dieses Prinzip natürlich auch:
 
-\begin{align*}
+$$\begin{align*}
 	0011_2 \cdot 2_{10}^1 &= 0011_2 \cdot 2_{10} &&= 0110_2 \\
 	0011_2 \cdot 2_{10}^2 &= 0011_2 \cdot 4_{10} &&= 1100_2
-\end{align*}
+\end{align*}$$
 
-\begin{align*}
+$$\begin{align*}
 	0011_2 \div 2_{10}^1 &= 0011_2 \div 2_{10} &&= 0001(.1000)_2 \\
 	0011_2 \div 2_{10}^2 &= 0011_2 \div 4_{10} &&= 0000(.1100)_2
-\end{align*}
+\end{align*}$$
 
 Hinweise:
 
