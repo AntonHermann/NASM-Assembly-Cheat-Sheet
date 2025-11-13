@@ -341,7 +341,9 @@ Beispiel:
 	; [Do something]
 
 
-### jl some_label / jb some_label / jg some_label / ja some_label / je some_label / jne some_label ...
+### j*X* some_label:
+(*X* wird durch eine von vielen Bezeichnungen ersetzt: `je`, `jne`, ...)
+
 Definition:
 Springe, wenn bestimmte Bits im Flag-Register gesetzt sind.
 Dies wird in der Regel in Kombination mit einer Vergleich-Operation genutzt,
